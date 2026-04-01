@@ -13,8 +13,26 @@ const options = {
         url: "https://finance-backend-uazm.onrender.com",
       },
     ],
+
+    // 🔥 ADD THIS PART
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-  apis: ["./routes/*.js"], // where your routes are
+
+  apis: ["./routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
