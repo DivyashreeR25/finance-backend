@@ -11,6 +11,16 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 
+/**
+ * @swagger
+ * /api/users:
+ *   get:
+ *     summary: Get all users (Admin only)
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: List of users
+ */
 // ADMIN ONLY
 router.post("/", protect, authorizeRoles("admin"), createUser);
 router.get("/", protect, authorizeRoles("admin"), getUsers);
