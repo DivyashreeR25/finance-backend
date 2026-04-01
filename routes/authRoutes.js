@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+
+const { login } = require("../controllers/authController");
 /**
  * @swagger
  * /api/auth/login:
@@ -22,8 +24,6 @@ const router = express.Router();
  *       200:
  *         description: Login successful
  */
-const { login } = require("../controllers/authController");
-
 router.post("/login", login);
 
 module.exports = router;

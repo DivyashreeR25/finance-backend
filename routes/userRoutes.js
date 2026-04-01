@@ -22,7 +22,7 @@ const {
  *         description: List of users
  */
 // ADMIN ONLY
-router.post("/", protect, authorizeRoles("admin"), createUser);
+router.post("/", authorizeRoles("admin"), createUser);
 router.get("/", protect, authorizeRoles("admin"), getUsers);
 router.put("/:id", protect, authorizeRoles("admin"), updateUser);
 router.delete("/:id", protect, authorizeRoles("admin"), deleteUser);
