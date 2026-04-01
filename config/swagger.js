@@ -1,3 +1,5 @@
+const swaggerJSDoc = require("swagger-jsdoc");
+
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -6,6 +8,12 @@ const options = {
       version: "1.0.0",
       description: "API for Finance Management System with AI Insights",
     },
+    servers: [
+      {
+        url: "https://finance-backend-uazm.onrender.com",
+      },
+    ],
+
     tags: [
       { name: "Users" },
       { name: "Auth" },
@@ -14,11 +22,28 @@ const options = {
       { name: "Dashboard" },
       { name: "AI" }
     ],
-    servers: [
+
+    // 🔥 EXISTING PART (UNCHANGED)
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+
+    security: [
       {
-        url: "https://finance-backend-uazm.onrender.com",
+        bearerAuth: [],
       },
     ],
   },
+
   apis: ["./routes/*.js"],
 };
+
+const swaggerSpec = swaggerJSDoc(options);
+
+module.exports = swaggerSpec;
