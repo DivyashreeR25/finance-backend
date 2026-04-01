@@ -35,6 +35,31 @@ const {
  *       201:
  *         description: Record created
  */
+/**
+ * @swagger
+ * /api/records/{id}:
+ *   put:
+ *     summary: Update a record
+ *     tags: [Records]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Record updated
+ */
+
+/**
+ * @swagger
+ * /api/records/{id}:
+ *   delete:
+ *     summary: Delete a record
+ *     tags: [Records]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Record deleted
+ */
 
 
 // ADMIN ONLY
